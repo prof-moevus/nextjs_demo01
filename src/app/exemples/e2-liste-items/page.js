@@ -14,31 +14,42 @@ export default function ListeProduits() {
         { category: "Vegetables", price: "$1", stocked: true, name: "Peas" }
     ]);
 
-    const deleteItem = () => {
-        const rd = Math.floor(Math.random() * products.length)
-        delete products[rd]
-        console.log(products)
-    }
+    // const deleteItem = () => {
+
+    //     setProducts((prevProducts) => {
+    //         const rd = Math.floor(Math.random() * products.length)
+    //         const newProducts = [...products]
+    //         delete products[rd]
+    //         return newProducts
+    //     })
+    // }
 
     const addItem = () => {
-        const rd = Math.floor(Math.random() * products.length)
-        products.splice(rd, 0, { category: "NA", price: "-1$", stocked: false, name: "NA" })
-        console.log(products)
+        setProducts((prevProducts) => {
+            const rd = Math.floor(Math.random() * products.length)
+            const newProducts = [...prevProducts]
+            newProducts.splice(rd, 0, { category: "NA", price: "-1$", stocked: false, name: "NA" })
+            return newProducts
+        })
+
 
     }
 
 
     return (
         <>
-            { products && products.map((item, i) => {
+            <div className='flex flex-row flex-wrap h-1/2'>
+                {products && products.map((item, i) => {
                     return (
                         <VignetteProduit item={item} key={i} listID={i} />
                     )
                 })
 
-            }
-            {/* <button onClick={deleteItem}>Supprimmer</button>
-            <button onClick={addItem}>Ajouter</button> */}
+                }
+            </div>
+            <button className='bg-slate-200 text-xl w-1/3 m-1' onClick={deleteItem}>Supprimmer</button>
+            <button className='bg-slate-200 text-xl w-1/3 m-1' onClick={addItem}>Ajouter</button>
+
         </>
     )
 }
