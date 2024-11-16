@@ -5,7 +5,7 @@ import VignetteProduit from "@/app/components/VignetteProduit"
 
 
 export default function ListeProduits() {
-    const { products, setProducts } = useState([
+    const [products, setProducts] = useState([
         { category: "Fruits", price: "$1", stocked: true, name: "Apple" },
         { category: "Fruits", price: "$1", stocked: true, name: "Dragonfruit" },
         { category: "Fruits", price: "$2", stocked: false, name: "Passionfruit" },
