@@ -14,15 +14,18 @@ export default function ListeProduits() {
         { category: "Vegetables", price: "$1", stocked: true, name: "Peas" }
     ]);
 
-    // const deleteItem = () => {
+    const deleteItem = () => {
 
-    //     setProducts((prevProducts) => {
-    //         const rd = Math.floor(Math.random() * products.length)
-    //         const newProducts = [...products]
-    //         delete products[rd]
-    //         return newProducts
-    //     })
-    // }
+        setProducts((prevProducts) => {
+            const rd = Math.floor(Math.random() * products.length)
+            const newProducts = [...products]
+            newProducts.splice(rd, 1)
+            //const newProducts = products.filter((_, id)=> id !== rd)
+            return newProducts
+        })
+        console.log("DB delete")
+        console.log(products)
+    }
 
     const addItem = () => {
         setProducts((prevProducts) => {
@@ -31,24 +34,23 @@ export default function ListeProduits() {
             newProducts.splice(rd, 0, { category: "NA", price: "-1$", stocked: false, name: "NA" })
             return newProducts
         })
-
-
     }
 
 
     return (
         <>
+            <button className='bg-slate-200 text-xl w-1/3 m-1' onClick={deleteItem}>Supprimmer</button>
+             <button className='bg-slate-200 text-xl w-1/3 m-1' onClick={addItem}>Ajouter</button>
             <div className='flex flex-row flex-wrap h-1/2'>
                 {products && products.map((item, i) => {
                     return (
-                        <VignetteProduit item={item} key={i} listID={i} />
+                     <VignetteProduit item={item} key={i} listID={i} />
                     )
                 })
 
                 }
             </div>
-            <button className='bg-slate-200 text-xl w-1/3 m-1' onClick={deleteItem}>Supprimmer</button>
-            <button className='bg-slate-200 text-xl w-1/3 m-1' onClick={addItem}>Ajouter</button>
+
 
         </>
     )
