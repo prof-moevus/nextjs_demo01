@@ -10,7 +10,7 @@ export default function Contacts() {
             <ul className="text-xl text-emerald-300 w-1/2">
                 <li><a href="/exemples/e1-states">Exemple states</a></li>
                 <li><a href="/exemples/e2-liste-items">Exemple liste d'objets</a></li>
-
+                <li><a href="/exemples/e3-useEffect">Exemple du hook useEffect()</a></li>
             </ul>
         </>
     )
