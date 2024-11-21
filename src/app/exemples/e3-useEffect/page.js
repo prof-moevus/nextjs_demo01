@@ -11,6 +11,9 @@ function ExempleCycleDeVie() {
     // Similaire à componentWillUnmount
     return () => {
       console.log('Le composant va être démonté');
+      if (count > 10) {
+        setCount(0)
+      }
     };
   });
 
