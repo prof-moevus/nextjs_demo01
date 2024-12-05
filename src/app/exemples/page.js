@@ -11,6 +11,8 @@ export default function Contacts() {
                 <li><a href="/exemples/e1-states">Exemple states</a></li>
                 <li><a href="/exemples/e2-liste-items">Exemple liste d &apos objets</a></li>
                 <li><a href="/exemples/e3-useEffect">Exemple du hook useEffect()</a></li>
+                <li><a href="/exemples/e9-DnD">Exemple de DnD</a></li>
+
             </ul>
         </>
     )
